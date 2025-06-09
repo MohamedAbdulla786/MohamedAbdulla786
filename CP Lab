@@ -1,0 +1,822 @@
+
+//Q 1
+#include <stdio.h>
+
+int main() {
+    float fahrenheit, celsius;
+
+    printf("Enter temperature in Fahrenheit: ");
+    scanf("%f", &fahrenheit);
+
+    celsius = (fahrenheit - 32) * 5 / 9;
+
+    printf("%.2f Fahrenheit is equal to %.2f Celsius.\n", fahrenheit, celsius);
+
+    return 0; 
+} 
+
+// Q2
+   #include <stdio.h>
+
+int main() {
+    float costPrice, sellingPrice, result;
+
+    printf("Enter cost price of newspapers: ");
+    scanf("%f", &costPrice);
+
+    printf("Enter selling price of newspapers: ");
+    scanf("%f", &sellingPrice);
+
+    result = sellingPrice - costPrice;
+    if (result > 0)
+        printf("The profit is: %.2f\n", result);
+    else if (result < 0)
+        printf("The loss is: %.2f\n", -result);
+    else
+        printf("No profit, no loss.\n");
+
+    return 0;
+} 
+
+//Q 3
+#include <stdio.h>
+
+
+void day_name() {
+    int d;
+
+    printf("Enter day number (1-7): ");
+    scanf("%d", &d);
+
+    switch(d) {
+        case 1: printf("Monday\n"); break;
+        case 2: printf("Tuesday\n"); break;
+        case 3: printf("Wednesday\n"); break;
+        case 4: printf("Thursday\n"); break;
+        case 5: printf("Friday\n"); break;
+        case 6: printf("Saturday\n"); break;
+        case 7: printf("Sunday\n"); break;
+        default: printf("Invalid day number.\n");
+    }
+}      
+int main() {
+    day_name();
+    return 0;
+} 
+
+//Q 4
+#include <stdio.h>
+void sum_n() {
+    int n, i = 1, x;
+    int sum = 0;
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    while(i <= n) {
+        printf("Enter integer %d: ", i);
+        scanf("%d", &x);
+        sum += x;
+        i++;
+    }
+
+    printf("Sum of the entered numbers is: %d\n", sum);
+}
+
+
+int main() {
+    sum_n();
+    return 0;
+} 
+
+//Q 5
+#include <stdio.h>
+
+void array_store() {
+    int n;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int a[n];  
+
+    for (int i = 0; i < n; i++) {
+        printf("Element %d: ", i + 1);
+        scanf("%d", &a[i]);
+    }
+
+    printf("Elements in the array are:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d\n", a[i]);
+    }
+}
+
+int main() {
+    array_store();
+    return 0;
+} 
+
+//Q 6
+#include <stdio.h>
+#include <string.h>
+
+// Function to check if a string is a palindrome
+void palindrome_str() {
+    char s[100], rs[100];
+    int len;
+
+    printf("Enter a string: ");
+    scanf("%s", s);
+
+    len = strlen(s);
+
+    for (int i = 0; i < len; i++) {
+        rs[i] = s[len - 1 - i];
+    }
+    rs[len] = '\0';  // Null-terminate the reversed string
+
+    if (strcmp(s, rs) == 0)
+        printf("%s is a palindrome.\n", s);
+    else
+        printf("%s is not a palindrome.\n", s);
+}
+
+// Main function to call palindrome_str
+int main() {
+    palindrome_str();
+    return 0;
+} 
+
+//Q 7
+#include <stdio.h>
+
+int main() {
+    int choice;
+    float area;
+
+    printf("Welcome to Shape Area Calculator!\n");
+    printf("Choose a shape:\n");
+    printf("1. Circle\n");
+    printf("2. Rectangle\n");
+    printf("3. Triangle\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch(choice) {
+        case 1: {
+            float radius;
+            printf("Enter radius of circle: ");
+            scanf("%f", &radius);
+            area = 3.14159 * radius * radius;
+            printf("Area of the circle is: %.2f square units\n", area);
+            break;
+        }
+        case 2: {
+            float length, width;
+            printf("Enter dimensions for rectangle:\n");
+            printf("Enter length: ");
+            scanf("%f", &length);
+            printf("Enter width: ");
+            scanf("%f", &width);
+            area = length * width;
+            printf("Area of the rectangle is: %.2f square units\n", area);
+            break;
+        }
+        case 3: {
+            float base, height;
+            printf("Enter dimensions for triangle:\n");
+            printf("Enter base: ");
+            scanf("%f", &base);
+            printf("Enter height: ");
+            scanf("%f", &height);
+            area = 0.5 * base * height;
+            printf("Area of the triangle is: %.2f square units\n", area);
+            break;
+        }
+        default:
+            printf("Invalid choice.\n");
+    }
+
+    return 0;
+} 
+// Q 8
+#include <stdio.h>
+
+// Recursive function to find GCD
+int GCD(int a, int b) {
+    if (b == 0)
+        return a;
+    return GCD(b, a % b);
+}
+
+int main() {
+    int num1, num2;
+    
+    printf("Enter two integers: ");
+    scanf("%d %d", &num1, &num2);
+    
+    int result = GCD(num1, num2);
+    printf("GCD Of %d And %d is: %d\n", num1, num2, result);
+    
+    return 0;
+} 
+
+//Q 9
+#include <stdio.h>
+
+void star_pattern() {
+    int l, w;
+
+    printf("Enter length = ");
+    scanf("%d", &l);
+
+    printf("Enter width = ");
+    scanf("%d", &w);
+
+    for (int i = 0; i < w; i++) {
+        for (int j = 0; j < l; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    star_pattern();
+    return 0;
+} 
+
+//Q 10
+#include <stdio.h>
+
+void check_vote() {
+    int age;
+
+    printf("Enter Age: ");
+    scanf("%d", &age);
+
+    if (age >= 18)
+        printf("The Person is Eligible\n");
+    else
+        printf("The Person is Not Eligible\n");
+}
+
+int main() {
+    check_vote();
+    return 0;
+}
+
+//Q 11
+#include <stdio.h>
+
+void mat_subtract() {
+    int a[2][2], b[2][2];
+
+    printf("Enter 1st 2x2 matrix:\n");
+    for(int i = 0; i < 2; i++)
+        for(int j = 0; j < 2; j++)
+            scanf("%d", &a[i][j]);
+
+    printf("Enter 2nd 2x2 matrix:\n");
+    for(int i = 0; i < 2; i++)
+        for(int j = 0; j < 2; j++)
+            scanf("%d", &b[i][j]);
+
+    printf("Subtraction of entered matrices:\n");
+    for(int i = 0; i < 2; i++) {
+        for(int j = 0; j < 2; j++)
+            printf("%d\t", a[i][j] - b[i][j]);
+        printf("\n");
+    }
+}
+
+int main() {
+    mat_subtract();
+    return 0;
+}
+//Q 12
+#include <stdio.h>
+
+// Function to check if a number is an Armstrong number
+int is_armstrong(int num) {
+    int sum = 0, temp = num, rem;
+    
+    while (temp) {
+        rem = temp % 10;
+        sum += rem * rem * rem;
+        temp /= 10;
+    }
+
+    return sum == num;
+}
+
+// Function that uses the Armstrong check for login logic
+void armstrong_login() {
+    int num;
+
+    printf("Enter number: ");
+    scanf("%d", &num);
+
+    if (is_armstrong(num))
+        printf("%d is an Armstrong number and computer is logged in.\n", num);
+    else
+        printf("%d is not an Armstrong number. Access denied.\n", num);
+}
+
+int main() {
+    armstrong_login();
+    return 0;
+} 
+//Q 13
+#include <stdio.h>
+#include <math.h>
+
+void std_dev() {
+    int n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    double a[n], sum = 0, mean, variance = 0;
+
+    printf("Enter %d values:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%lf", &a[i]);
+        sum += a[i];
+    }
+
+    mean = sum / n;
+
+    for (int i = 0; i < n; i++)
+        variance += (a[i] - mean) * (a[i] - mean);
+
+    variance /= n;
+
+    printf("Standard deviation is %.1lf\n", sqrt(variance));
+}
+
+int main() {
+    std_dev();
+    return 0;
+}
+*/
+
+//Q 14
+#include <stdio.h>
+
+// Function to store and display personal info of 3 persons
+void personal_info() {
+    struct person {
+        char name[30];
+        char doj[12];
+        double salary;
+    } p[3];
+
+    for (int i = 0; i < 3; i++) {
+        printf("Enter Name, DOJ (DD/MM/YYYY), Salary:\n");
+        scanf("%s %s %lf", p[i].name, p[i].doj, &p[i].salary);
+    }
+
+    printf("Entered details:\n");
+
+    for (int i = 0; i < 3; i++)
+        printf("Name: %s\nDOJ: %s\nSalary: %.2lf\n", p[i].name, p[i].doj, p[i].salary);
+}
+
+int main() {
+    personal_info();
+    return 0;
+} 
+//Q 15
+#include <stdio.h>
+#include <string.h>
+
+void swap_pwds() {
+    char bob[] = "Honey", jim[] = "Sweety", tmp[20];
+
+    strcpy(tmp, bob);
+    strcpy(bob, jim);
+    strcpy(jim, tmp);
+
+    printf("%s\n%s\n", bob, jim);
+}
+//Q 16
+#include <stdio.h>
+
+void file_ops() {
+    FILE *fp = fopen("students.txt", "a+");
+
+    if (!fp) {
+        printf("File error\n");
+        return;
+    }
+
+    char name[30];
+    int roll;
+
+    printf("Enter record to append (roll name): ");
+    scanf("%d %s", &roll, name);
+
+    fprintf(fp, "%d %s\n", roll, name);
+
+    rewind(fp);
+
+    printf("All records:\n");
+
+    while (fscanf(fp, "%d %s", &roll, name) != EOF)
+        printf("%d. %s\n", roll, name);
+
+    fclose(fp);
+}
+//Q 17
+#include <stdio.h>
+
+void upper2lower() {
+    char ch;
+
+    printf("Enter an uppercase character: ");
+    scanf(" %c", &ch);  // Note the space before %c to consume any leftover newline
+
+    if (ch >= 'A' && ch <= 'Z') {
+        ch = ch - 'A' + 'a';
+        printf("Uppercase character '%c' converted to lowercase: '%c'\n", ch - ('a' - 'A'), ch);
+    } else {
+        printf("Invalid input.\n");
+    }
+}
+
+//Q 18
+#include <stdio.h>
+
+void traffic_light() {
+    enum state { RED, YELLOW, GREEN };
+
+    struct light {
+        unsigned state : 2;
+        unsigned blinking : 1;
+    } t;
+
+    printf("Enter traffic light state (0-RED, 1-YELLOW, 2-GREEN): ");
+    scanf("%u", &t.state);
+
+    printf("Is blinking? (0-NO, 1-YES): ");
+    scanf("%u", &t.blinking);
+
+    printf("Traffic Light State: ");
+    if (t.state == RED)
+        printf("RED\n");
+    else if (t.state == YELLOW)
+        printf("YELLOW\n");
+    else
+        printf("GREEN\n");
+
+    printf("Blinking: %s\n", t.blinking ? "YES" : "NO");
+}
+//Q 19
+#include <stdio.h>
+
+void emp_binary() {
+    struct emp {
+        char name[30];
+        int age;
+        double salary;
+    };
+
+    int n;
+    printf("Enter the number of employees: ");
+    scanf("%d", &n);
+
+    struct emp e;
+    FILE *fp = fopen("employees.dat", "wb");
+    if (fp == NULL) {
+        printf("Error opening file.\n");
+        return;
+    }
+
+    for (int i = 0; i < n; i++) {
+        printf("Name: ");
+        scanf("%s", e.name);
+        printf("Age: ");
+        scanf("%d", &e.age);
+        printf("Salary: ");
+        scanf("%lf", &e.salary);
+
+        fwrite(&e, sizeof(e), 1, fp);
+    }
+
+    fclose(fp);
+
+    printf("Employee records written to employees.dat successfully.\n");
+}
+
+int main() {
+    emp_binary();
+    return 0;
+}
+//20
+#include <stdio.h>
+#include <string.h>
+
+void cmp_name_length() {
+    char a[50], b[50];
+
+    printf("Input the 1st string: ");
+    scanf("%s", a);
+
+    printf("Input the 2nd string: ");
+    scanf("%s", b);
+
+    int la = strlen(a), lb = strlen(b);
+
+    if (la == lb)
+        printf("Strings length are equal.\n");
+    else
+        printf("Strings length are not equal.\n");
+}
+
+int main() {
+    cmp_name_length();
+    return 0;
+}
+//Q 21
+#include <stdio.h>
+
+void admission_eligibility() {
+    int phy, chem, maths;
+
+    printf("Physics: ");
+    scanf("%d", &phy);
+
+    printf("Chemistry: ");
+    scanf("%d", &chem);
+
+    printf("Mathematics: ");
+    scanf("%d", &maths);
+
+    int total = phy + chem + maths;
+    int mp = maths + phy;
+
+    if ((maths >= 65 && phy >= 55 && chem >= 50 && total >= 190) || (mp >= 140))
+        printf("The candidate is eligible.\n");
+    else
+        printf("The candidate is not eligible.\n");
+}
+
+int main() {
+    admission_eligibility();
+    return 0;
+}
+//Q 22
+#include <stdio.h>
+
+void temp_msg() {
+    int t;
+    printf("Enter temperature: ");
+    scanf("%d", &t);
+
+    if (t < 0)
+        printf("Freezing weather\n");
+    else if (t <= 10)
+        printf("Very Cold weather\n");
+    else if (t <= 20)
+        printf("Cold weather\n");
+    else if (t <= 30)
+        printf("Normal in Temp\n");
+    else if (t <= 40)
+        printf("Its Hot\n");
+    else
+        printf("Its Very Hot\n");
+}
+
+int main() {
+    temp_msg();
+    return 0;
+}
+
+// Q 23
+#include <stdio.h>
+
+void elec_bill() {
+    int id;
+    char name[30];
+    int unit;
+
+    printf("Customer id: ");
+    scanf("%d", &id);
+
+    printf("Customer name: ");
+    scanf("%s", name);
+
+    printf("Units: ");
+    scanf("%d", &unit);
+
+    double rate = (unit < 200) ? 1.20 :
+                  (unit < 400) ? 1.50 :
+                  (unit < 600) ? 1.80 : 2.00;
+
+    double amt = unit * rate;
+
+    printf("Customer ID: %d\n", id);
+    printf("Customer Name: %s\n", name);
+    printf("Units Consumed: %d\n", unit);
+    printf("Rate per Unit: %.2lf\n", rate);
+    printf("Amount to be paid: %.2lf\n", amt);
+}
+
+int main() {
+    elec_bill();
+    return 0;
+}
+
+//Q 24
+#include <stdio.h>
+
+void count_occurrences() {
+    int n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    int a[n];
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+
+    for (int i = 0; i < n; i++) {
+        if (a[i] == -1) continue;
+
+        int cnt = 1;
+        for (int j = i + 1; j < n; j++) {
+            if (a[j] == a[i]) {
+                cnt++;
+                a[j] = -1;
+            }
+        }
+
+        printf("%d occurs %d time%s\n", a[i], cnt, cnt > 1 ? "s" : "");
+    }
+}
+
+int main() {
+    count_occurrences();
+    return 0;
+}
+
+// Q 25
+#include <stdio.h>
+
+int main() {
+    char str1[100], str2[100];
+    int len1 = 0, len2 = 0;
+
+    printf("Check the length of two strings:\n");
+
+    printf("Input the 1st string : ");
+    scanf("%s", str1);
+
+    printf("Input the 2nd string : ");
+    scanf("%s", str2);
+
+    // Calculate length of first string manually
+    while (str1[len1] != '\0') {
+        len1++;
+    }
+
+    // Calculate length of second string manually
+    while (str2[len2] != '\0') {
+        len2++;
+    }
+
+    printf("String1: %s\n", str1);
+    printf("String2: %s\n", str2);
+
+    if (len1 == len2) {
+        printf("Strings length are equal.\n");
+    } else {
+        printf("Strings length are not equal.\n");
+    }
+
+    return 0;
+}
+
+// Q 26
+#include <stdio.h>
+#include <math.h>
+
+int isPrime(int x) {
+    if (x <= 1) return 0;
+
+    for (int i = 2; i <= (int)sqrt(x); i++) {
+        if (x % i == 0) return 0;
+    }
+
+    return 1;
+}
+
+void prime_interval() {
+    int lo, hi;
+
+    printf("Enter lower and upper limits: ");
+    scanf("%d %d", &lo, &hi);
+
+    printf("All prime numbers between %d to %d are: ", lo, hi);
+
+    for (int i = lo; i <= hi; i++) {
+        if (isPrime(i)) printf("%d, ", i);
+    }
+
+    printf("\n");
+}
+
+int main() {
+    prime_interval();
+    return 0;
+}
+
+// Q 27
+#include <stdio.h>
+
+void delete_duplicates() {
+    int n;
+    scanf("%d", &n);
+
+    int a[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+
+    for (int i = 0; i < n; i++) {
+        int j;
+        for (j = 0; j < i; j++) {
+            if (a[i] == a[j]) break;
+        }
+        if (j == i) printf("%d\n", a[i]);
+    }
+}
+
+int main() {
+    delete_duplicates();
+    return 0;
+}
+
+//28
+#include <stdio.h>
+
+void sum_digits() {
+    int num, sum = 0;
+    scanf("%d", &num);
+    while (num) {
+        sum += num % 10;
+        num /= 10;
+    }
+    printf("%d\n", sum);
+}
+
+int main() {
+    sum_digits();
+    return 0;
+}
+//Q 29
+#include <stdio.h>
+
+void min_max_array() {
+    int n;
+    scanf("%d", &n);
+
+    int a[n];
+    for (int i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    int mx = a[0], mn = a[0];
+    for (int i = 1; i < n; i++) {
+        if (a[i] > mx) mx = a[i];
+        if (a[i] < mn) mn = a[i];
+    }
+
+    printf("Maximum Element is %d\nMinimum Element is %d\n", mx, mn);
+}
+
+int main() {
+    min_max_array();
+    return 0;
+}
+
+//Q 30
+#include <stdio.h>
+
+void lowercase2uppercase() {
+    char s[100];
+    scanf("%s", s);
+
+    for (int i = 0; s[i]; i++) {
+        if (s[i] >= 'a' && s[i] <= 'z') {
+            s[i] -= 32;
+        }
+    }
+
+    printf("%s\n", s);
+}
+
+int main() {
+    lowercase2uppercase();
+    return 0;
+}
